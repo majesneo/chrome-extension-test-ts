@@ -1,0 +1,46 @@
+{
+  "name": "Softomate extension",
+  "version": "1.0.0",
+  "description": "Extension description",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+      "helpers.js",
+      "storage.js",
+      "api.js",
+      "alert.js",
+      "background.js",
+      "backgroundRequests.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "helpers.js",
+        "content.js"
+      ],
+      "css": ["alert.css"],
+      "run_at": "document_end",
+      "matches": [
+        "https://*.yandex.ru/*",
+        "https://*.google.ru/*",
+        "https://*.bing.com/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "https://www.softomate.net/ext/employees/list.json"
+  ],
+  "icons": {
+    "16": "jigsaw.png",
+    "48": "jigsaw.png",
+    "128": "jigsaw.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
